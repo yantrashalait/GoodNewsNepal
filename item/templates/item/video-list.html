@@ -1,0 +1,80 @@
+{% extends 'item/base.html' %}
+{% load static %}
+{% block content %}
+	<section class="top_banner_head">
+		<div class="container">
+			<div class="row">
+				<div class="left_Side_cetegory-name">
+					<h2>All Videos</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="video_list">
+		<div class="container">
+			<div class="row">
+				{% for item in video %}
+				<div class="col-md-4 categ_marg-divider">
+					<div class="video_category_list">
+						<div class="categogy_img-thumb">
+							<a href="{% url 'item:video-detail' item.pk %}"><img src="{{ item.thumbnail_image.url }}"></a>
+						</div>
+						<div class="category_detail_list">
+							<div class="category_title">
+								<a href="{% url 'item:video-category-list' item.category.pk %}">{{ item.category }}</a>   /
+								<a href="#">{{ item.date }}</a>
+							</div>
+							<div class="category_middle_detail">
+							<a href="{% url 'item:video-detail' item.pk %}"><h4>{{ item.video_caption }}</h4></a>
+							</div>
+
+						</div>						
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			{% if is_paginated %}
+			<div class="col-md-12">
+					<div class="row">
+						<div class="prd_pagination">
+							<div class="blog-pagination">
+								<span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+								<ul class="flat-pagination style1">
+										{% if page_obj.has_previous %}
+									<li class="prev">
+										<a href="?page={{ page_obj.previous_page_number }}" title="">Prev Page</a>
+									</li>
+									{% endif %}
+									{% for i in paginator.page_range %}
+                                        {% if page_obj.number == i %}
+                                        <li class="active">
+                                            <a href="#" class="waves-effect" title="">{{ i }}</a>
+                                        </li>
+                                        {% else %}
+                                        <li>
+                                            <a href="?page={{ i }}" class="waves-effect" title="">{{ i }}</a>
+                                        </li>
+                                        {% endif %}
+									{% endfor %}
+									{% if page_obj.has_next %}
+                                    <li class="next">
+                                        <a href="?page={{ page_obj.next_page_number }}" title="">
+                                        Next Page
+                                        </a>
+                                    </li>
+                                    {% endif %}
+								</ul>
+								<!-- /.flat-pagination style1 -->
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+		</div>
+	</section>
+{% endblock %}
+{% block scripts %}
+<script>
+	$("#all").addClass('active');
+</script>
+{% endblock %}

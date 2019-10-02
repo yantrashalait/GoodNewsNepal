@@ -1,0 +1,267 @@
+{% extends 'item/base.html' %}
+{% load static %}
+{% block content %}
+<section class="videos-banner">
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="video-blog">
+						<div class="blog_video_img">
+							<img src="{{ latest.0.thumbnail_image.url }}">
+
+						</div>
+							<div class="home_play-button">
+								<a href="#">
+									<img src="{% static 'image/playicon.png' %}">
+								</a>
+							</div>
+						<div class="banner_video_blog">
+							<div class="top_title">
+								<a href="{% url 'item:video-category-list' latest.0.category.pk %}">{{ latest.0.category }}</a>
+							</div>
+							<div class="middle_content">
+							<a href="{% url 'item:video-detail' latest.0.pk %}">{{ latest.0.video_caption }}</a>
+							</div>
+							<div class="content_added_date">
+									<a href="#">{{ latest.0.date }}</a>
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="video_blog_style_two">
+						<div class="blog_video_img">
+							<img src="{{ latest.1.thumbnail_image.url }}">
+							
+						</div>
+							<div class="home_play-button">
+								<a href="#">
+									<img src="{% static 'image/playicon.png' %}">
+								</a>
+							</div>
+						<div class="short-video_details_style_two">
+							<div class="detail-style-two_top_title">
+								<a href="{% url 'item:video-category-list' latest.1.category.pk %}">{{ latest.1.category }}</a> 
+							</div>
+							<div class="detail-style-two_middle_content">
+							<a href="{% url 'item:video-detail' latest.1.pk %}">{{ latest.1.video_caption }}</a>
+							</div>
+							<div class="detail-style-two_added_date">
+									<a href="#">{{ latest.1.date }}</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12 margin_divider">
+							<div class="video_blog_style_three">
+								<div class="img-thumb_style_three">
+									<img src="{{ latest.2.thumbnail_image.url }}">
+								</div>
+								<div class="video_content_style_three">
+									<div class="style_three_top_title">
+										<a href="{% url 'item:video-category-list' latest.2.category.pk %}">{{ latest.2.category }}</a>
+									</div>
+									<div class="style_three_middle_content">
+										<a href="{% url 'item:video-detail' latest.2.pk %}">{{ latest.2.video_caption }}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					<div class="col-md-12 margin_divider">
+							<div class="video_blog_style_three">
+								<div class="img-thumb_style_three">
+									<img src="{{ latest.3.thumbnail_image.url }}">
+								</div>
+								<div class="video_content_style_three">
+									<div class="style_three_top_title">
+										<a href="{% url 'item:video-category-list' latest.3.category.pk %}">{{ latest.3.category }}</a>
+									</div>
+									<div class="style_three_middle_content">
+										<a href="{% url 'item:video-detail' latest.3.pk %}">{{ latest.3.video_caption }}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="first_block">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="first_blog_row">
+													<div class="row">
+								<div class="col-md-7">
+									<div class="tech_img2_thumb">
+										<img src="{{ featured.0.thumbnail_image.url }}">
+	
+									</div>
+									<div class="first-block_play-button">
+										<a href="#">
+											<img src="{% static 'image/playicon.png' %}">
+										</a>
+								</div>
+								</div>
+								<div class="col-md-5">
+									<div class="first_block_detail">
+										<div class="top_tech_title">
+											<a href="{% url 'item:video-category-list' featured.0.category.pk %}">{{ featured.0.category }}</a>
+										</div>
+										<div class="first_middle_block">
+											<a href="{% url 'item:video-detail' featured.0.pk %}">{{ featured.0.video_caption }}</a>
+										</div>
+										<div class="content_added_date">
+											<a href="#">{{ featured.0.date }}</a>
+										</div>
+	
+									</div>
+								</div>
+	
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="first_block_image">
+							<img src="{{ featured.1.thumbnail_image.url }}">
+						</div>
+						<div class="first_block_contain_details">
+							<div class="top_block_title">
+								<a href="{% url 'item:video-category-list' featured.1.category.pk %}">{{ featured.1.category }}</a>
+							</div>
+							<div class="middle_block_content">
+								<a href="{% url 'item:video-detail' featured.1.pk %}">{{ featured.1.video_caption }}</a>
+							</div>
+						</div>
+					</div>
+						<div class="col-md-3">
+						<div class="first_block_image">
+							<img src="{{ featured.2.thumbnail_image.url }}">
+						</div>
+						<div class="first_block_contain_details">
+							<div class="top_block_title">
+								<a href="{% url 'item:video-category-list' featured.2.category.pk %}">{{ featured.2.category }}</a>
+							</div>
+							<div class="middle_block_content">
+								<a href="{% url 'item:video-detail' featured.2.pk %}">{{ featured.2.video_caption }}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<section class="Latest_news">
+		{% for item in catlist %}
+		<div class="container catego-divider">
+			<div class="heading-area">
+				<h3>{{ item.name }}</h3>
+				<p>Abundantly creeping saw forth spirit can made appear fourth us.</p>
+			</div>
+			<div class="row">
+					{% for obj in item.video.all|slice:":1" %}
+				<div class="col-md-6">
+					<div class="latest_fashion">
+						
+						<div class="lasest_thumb_img">
+							<a href=""><img src="{{ obj.thumbnail_image.url }}"></a>
+						</div>
+						
+							<div class="latest_fashion_details">
+							<div class="top_title">
+								<a href="{% url 'item:video-category-list' obj.category.pk %}">{{ item.name }}</a>   /
+								<a href="{{ obj.date }}">march 15, 2019</a>
+							</div>
+							<div class="middle_content">
+							<a href="{% url 'item:video-detail' obj.pk %}">{{ obj.video_caption }}</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<div class="col-md-6">
+					<div class="row">
+							{% for obj in item.video.all|slice:"1:5" %}
+						<div class="col-md-6 divider-section">
+							<div class="fashion_sidebar_news_details">
+								<div class="img-thumb">
+									<img src="{{ obj.thumbnail_image.url }}">
+								</div>
+									<div class="fashion_sidebar_details">
+										<div class="top_title">
+											<a href="{% url 'item:video-category-list' obj.category.pk %}">{{ obj.category }}</a>   /
+											<a href="#">{{ obj.date }}</a>
+										</div>
+										<div class="middle_content_sidebar">
+											<a href="{% url 'item:video-detail' obj.pk %}">{{ obj.video_caption }}</a>
+										</div>
+
+									</div>
+							</div>
+						</div>
+						{% endfor %}
+						</div>						 
+					</div>
+			</div>
+			<div class="col-md-12 view-button">
+				<div class="button_load_more">
+					<a href="{% url 'item:video-category-list' item.pk %}">View All<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			</div>
+			{% endfor %}
+		</div>
+		
+	</section>
+	<section class="fashion_news">
+		<div class="container">
+			<div class="heading-area">
+				<h3>Recommended Videos</h3>
+				<p>Abundantly creeping saw forth spirit can made appear fourth us.</p>
+			</div>
+			<div class="row">
+				{% for item in recommend|slice:":3" %}
+				<div class="col-md-4">
+					<div class="fashion_news_details">
+						<div class="img-thumb">
+							<img src="{{ item.thumbnail_image.url }}">
+						</div>
+						<div class="fashion_short_details">
+							<div class="top_title">
+								<a href="{% url 'item:video-category-list' item.category.pk %}">{{ item.category }}</a>   /
+								<a href="#">{{ item.date }}</a>
+							</div>
+							<div class="middle_content">
+							<a href="{% url 'item:video-detail' item.pk %}">{{ item.video_caption }}</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					{% for item in big_banner %}
+					<div class="advertisement">
+						<!-- <a href="#"> -->
+							<img src="{{ item.main_image.url }}">
+						<!-- </a> -->
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+{% block scripts %}
+<script>
+	$("#home").addClass('active');
+</script>
+{% endblock %}

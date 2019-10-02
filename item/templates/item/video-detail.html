@@ -1,0 +1,131 @@
+{% extends 'item/base.html' %}
+{% load static %}
+{% block content %}
+	<section class="top_banner_head">
+		<div class="container">
+			<div class="row">
+				<div class="left_Side_cetegory-name">
+					<h2> Video Detail</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="individual_blog_details">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="blog_video_details">
+						<div class="feature_img">
+							<img src="{{ video.thumbnail_image.url }}">
+							<div class="category-push-button">
+							<a href="">
+								<img src="{% static 'image/playicon.png' %}">
+							</a>
+						</div>
+						</div>
+						
+					</div>
+					<div class="detail_blog-description">
+						<h2>{{ video.video_caption }}</h2>
+						<ul class="description-list">
+							<li><a href="">{{ video.category }}</a></li> 
+						</ul>
+					</div>
+					<div class="hide_able_content">
+						<p>अन्य भिडियो हेर्नको लागि गुड न्यूज टि.भी. को यूट्युब च्यानल सब्स्क्राइब गर्नुहोस् , धन्यवाद ।</p>
+						
+						<span class="pointer" data-toggle="collapse" data-target="#demo">Show more</span>
+							<div id="demo" class="collapse">
+						    	<p class="youtube-content">{{ video.video_description|linebreaks }}</p>
+ 						    	<div class="channel_info&contact_detail">
+							    	<p>Facebook Page:<br><a href="https://www.facebook.com/GoodNewsOnline7">www.facebook.com/GoodNewsOnline7</a></p>
+							    	
+									<p>Youtube:<br><a href="https://www.youtube.com/watch?v=fZbKn6FcMls">https://www.youtube.com/watch?v=fZbKn6FcMls</a></p>
+									
+									<p>Website:<br><a href="http://goodnews.com.np/">https://www.goodnews.com.np/</a></p>
+							    	
+							    	<p>Email: <br>goodnewsmedia7@gmail.com</p> 
+							    	
+							    	<p >Contact: <br>9851000920, 9803931319, 9849160901</p> 
+
+									<p>© GN Production</p>	
+						    	</div>
+   	  							<span class="pointer" data-toggle="collapse" data-target="#demo">Show Less</span>
+
+
+						  	</div>
+
+					</div>
+
+					</div>
+					<div class="col-md-4">
+						<div class="blog_right_sidebar">
+							<aside class="sidebar_search_widget">
+								<h4 class="widget_title">Category</h4>
+								{% for item in category %}
+							<ul class="list_cato_list">
+								<li><a href="{% url 'item:video-category-list' item.pk %}"><p>{{ item.name }}</p></a></li>
+								{% endfor %}
+							</ul>
+						</aside>
+					</div>
+					<div class="row">
+						{% for item in small_banner %}
+						<div class="col-md-12">
+							<div class="detail_page_advertisement">
+								<a href="#">
+							<img src="{{ item.image.url }}">
+						</a>
+					</div>
+					</div>
+					{% endfor %}
+					
+				</div>
+				</div>
+
+			</div>
+		</div>
+	</Section>
+	<section class="top-category">
+			<div class="container">
+				<div class="top_watched_videos">
+					<p>Related Videos</p>
+				</div>
+			<div class="row"> 
+				{% for item in related %}
+				<div class="col-md-4">
+					<div class="related_category">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="thumb-categ-image">
+									<img src="{{ item.thumbnail_image.url }}">
+									<div class="play-button-catg">
+									<a href="">
+										<img src="{% static 'image/playicon.png' %}">
+									</a>
+								</div>
+								</div>
+
+							</div>
+							<div class="col-md-6">
+								<div class="top-related-categ-detail">
+									<div class="category_title">
+										<a href="{% url 'item:video-category-list' item.category.pk %}">{{ item.category }}</a>   /
+										<a href="#">{{ item.date }}</a>
+									</div>
+									<div class="category_middle_detail">
+										<a href="{% url 'item:video-detail' item.pk %}"><h4>{{ item.video_caption }}</h4></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			</div>
+	</section>
+{% endblock %}
+{% block scripts %}
+{% endblock %}
