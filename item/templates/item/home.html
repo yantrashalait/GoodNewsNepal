@@ -5,14 +5,14 @@
 	
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-5">
+				<div class="col-md-5 banner_divider">
 					<div class="video-blog">
 						<div class="blog_video_img">
 							<img src="{{ latest.0.thumbnail_image.url }}">
 
 						</div>
 							<div class="home_play-button">
-								<a href="#">
+								<a href="#myModal" data-toggle="modal", data-url="{{ latest.0.video_url }}" data-caption="{{ latest.0.video_caption }}" data-target="#myModal">
 									<img src="{% static 'image/playicon.png' %}">
 								</a>
 							</div>
@@ -24,12 +24,12 @@
 							<a href="{% url 'item:video-detail' latest.0.pk %}">{{ latest.0.video_caption }}</a>
 							</div>
 							<div class="content_added_date">
-									<a href="#">{{ latest.0.date }}</a>
+									<span class="date_decor">{{ latest.0.date }}</span>
 							</div>
 						</div>						
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 banner_divider">
 					<div class="video_blog_style_two">
 						<div class="blog_video_img">
 							<img src="{{ latest.1.thumbnail_image.url }}">
@@ -37,7 +37,7 @@
 						</div>
 							<div class="home_play-button">
 								<a href="#">
-									<img src="{% static 'image/playicon.png' %}">
+									<img src="{% static 'image/playicon.png' %}" data-toggle="modal" data-target="#myModal">
 								</a>
 							</div>
 						<div class="short-video_details_style_two">
@@ -48,7 +48,7 @@
 							<a href="{% url 'item:video-detail' latest.1.pk %}">{{ latest.1.video_caption }}</a>
 							</div>
 							<div class="detail-style-two_added_date">
-									<a href="#">{{ latest.1.date }}</a>
+									<span class="date_decor">{{ latest.1.date }}</span>
 							</div>
 
 						</div>
@@ -93,9 +93,9 @@
 		</div>
 	</section>
 	<section class="first_block">
-			<div class="container">
+			<div class="co	ntainer">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-6 first-blk-divider">
 						<div class="first_blog_row">
 													<div class="row">
 								<div class="col-md-7">
@@ -105,7 +105,7 @@
 									</div>
 									<div class="first-block_play-button">
 										<a href="#">
-											<img src="{% static 'image/playicon.png' %}">
+											<img src="{% static 'image/playicon.png' %}"data-toggle="modal" data-target="#myModal">
 										</a>
 								</div>
 								</div>
@@ -118,7 +118,7 @@
 											<a href="{% url 'item:video-detail' featured.0.pk %}">{{ featured.0.video_caption }}</a>
 										</div>
 										<div class="content_added_date">
-											<a href="#">{{ featured.0.date }}</a>
+											<span class="date_decor">{{ featured.0.date }}</span>
 										</div>
 	
 									</div>
@@ -127,7 +127,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 first-blk-divider">
 						<div class="first_block_image">
 							<img src="{{ featured.1.thumbnail_image.url }}">
 						</div>
@@ -165,7 +165,7 @@
 			</div>
 			<div class="row">
 					{% for obj in item.video.all|slice:":1" %}
-				<div class="col-md-6">
+				<div class="col-md-6 lst_new_divider">
 					<div class="latest_fashion">
 						
 						<div class="lasest_thumb_img">
@@ -227,7 +227,7 @@
 			</div>
 			<div class="row">
 				{% for item in recommend|slice:":3" %}
-				<div class="col-md-4">
+				<div class="col-md-4 fash_new_divider">
 					<div class="fashion_news_details">
 						<div class="img-thumb">
 							<img src="{{ item.thumbnail_image.url }}">
@@ -261,7 +261,29 @@
 	</section>
 {% endblock %}
 {% block scripts %}
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+			<h4 class="modal-title" id="modalHeader"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 </div>
+        <div class="modal-body">
+				<iframe width="100%" height="430px" id="modal" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script>
 	$("#home").addClass('active');
+	$('#myModal').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget); // Button that triggered the modal
+		var url = button.data('url'); // Extract info from data-* attributes
+		var caption = button.data('caption');
+		var url = url.replace("watch?v=", "embed/")
+		$("#modal").attr("src", url);
+		$("#modalHeader").text(caption);
+	});
 </script>
 {% endblock %}

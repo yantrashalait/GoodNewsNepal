@@ -11,7 +11,7 @@ class Category(models.Model):
 class Video(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='video')
     video_url = models.URLField(help_text="Please enter the url of the video from youtube or other sources")
-    thumbnail_image = models.ImageField(upload_to='thumbnail/')
+    thumbnail_image = models.ImageField(upload_to='thumbnail/', help_text="Image size: width=1199px height=800px")
     video_caption = models.TextField()
     video_description = models.TextField()
     date = models.DateField()
@@ -24,16 +24,22 @@ class Video(models.Model):
     
 
 class BigBanner(models.Model):
-    main_image = models.ImageField(upload_to='banner/', null=True, blank=True)
-    company_name = models.CharField(max_length=200, null=True, blank=True)
+    main_image = models.ImageField(upload_to='banner/', null=True, blank=True, help_text="Image size: width=1024px height=77px")
+    company_name = models.CharField(max_length=200)
     added_date = models.DateField(default=timezone.now)
     valid_date = models.DateField()
     show = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.company_name
+
 class SmallBanner(models.Model):
-    image = models.ImageField(upload_to='banner/', null=True, blank=True)
-    company_name = models.CharField(max_length=200, null=True, blank=True)
+    image = models.ImageField(upload_to='banner/', help_text="Image size: width=1024px height=500px")
+    company_name = models.CharField(max_length=200)
     added_date = models.DateField(default=timezone.now)
     valid_date = models.DateField()
     show = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.company_name
 

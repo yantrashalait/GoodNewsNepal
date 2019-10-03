@@ -32,7 +32,7 @@ section.videos-banner {
     position: absolute;
     width: 70%;
     right: 15px;
-    bottom: 15px;
+    bottom: 0px;
     padding: 0px 25px 43px 20px;
 }
 .blog_video_img{
@@ -55,7 +55,7 @@ section.videos-banner {
     text-align: center;
     transform: translate(-50%, -50%);
 }
-.detail-style-two_added_date a {
+.detail-style-two_added_date {
     text-transform: uppercase;
     font-size: 11px;
     color: #fff;
@@ -64,7 +64,7 @@ section.videos-banner {
 .detail-style-two_added_date{
     display: inline-block;
 }
-.detail-style-two_added_date a:hover{
+.date_decor:hover{
     color: #ff7a7f;
     transition: all 0.4s;
     text-decoration: none;
@@ -256,16 +256,21 @@ section.technology_videos {
 .middle_content {
     margin: 10px 0px 10px 0px;
 }
-.content_added_date a {
+.content_added_date{
     text-transform: uppercase;
     font-size: 11px;
     color: #797979;
     padding: 0px 2px 0px 0px;
 }
-.content_added_date a:hover{
+content_added_date:hover{
+    text-decoration: none;
     color: #ff7a7f;
     transition: 0.4s;
-        text-decoration: none;
+}
+ .date_decor:hover{
+    color: #ff7a7f;
+    transition: 0.4s;
+    text-decoration: none;
 
 }
 .content_added_date{
@@ -384,7 +389,7 @@ section.technology_videos {
 }
 .middle_content a {
     color: #33353b;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
 }
 .middle_content a:hover {
@@ -395,11 +400,9 @@ section.technology_videos {
 
 
 /*FASHION NEWS SECTION*/
-/* section.Latest_news {
-    padding: 0px 0px 45px 0px;
-} */
+
 .catego-divider{
-    padding-top: 180px;
+    padding-top: 135px;
 }
 .lasest_thumb_img {
     position: relative;
@@ -428,9 +431,10 @@ section.technology_videos {
     padding: 8px 0px 0px 25px;
 }
 .divider-section{
-    margin-bottom: 75px;
+    margin-bottom: 87px;
 }
 .middle_content_sidebar a{
+    font-size: 13px;
     color: #33353b;
    font-weight: 600;
 
@@ -490,12 +494,16 @@ section.travel-news {
     height: 155px;
 }
 section.fashion_news {
-    padding: 180px 0px 65px 0px;
+    padding: 125px 0px 65px 0px;
 }
 .advertisement {
     width: 100%;
     text-align: center;
-    margin-top: 180px;
+    margin-top: 100px;
+}
+.advertisement img{
+    width: 100%;
+    overflow: hidden;
 }
 .blog_img_thumb{
     position: relative;
@@ -558,7 +566,7 @@ section.video_list {
 }
 .category_middle_detail a h4 {
     color: #33353b;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     text-transform: lowercase;
     margin-top: 10px;
@@ -568,7 +576,7 @@ section.video_list {
 }
 .view-button {
     text-align: center;
-    padding: 97px 0px 0px 0px;
+    padding: 89px 0px 0px 0px;
 }
 .loding-button {
     padding: 50px 0px 0px 0px;
@@ -605,7 +613,7 @@ section.individual_blog_details {
     border-bottom: 1px solid #eee8e8;
 }
 .detail_blog-description h2{ 
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 15px;
     color: #2a2a2a;
     font-weight: 600;
@@ -711,7 +719,7 @@ h4.widget_title {
     text-transform: uppercase;
 }
 section.top-category {
-    padding-bottom: 100px;
+    padding-bottom: 60px;
 }
 .hide_able_content {
     margin-top: 20px;
@@ -896,9 +904,10 @@ ul.flat-pagination li a {
 
 ul.flat-pagination li.active a,
 ul.flat-pagination li a:hover {
- background-color:#f28b00;
- color:#fffefe;
- border-color:#f28b00;
+color: #fff; 
+background-color:#ff7a7f;
+ border-color:#ff7a7f;
+ text-decoration: none;
 }
 
 ul.flat-pagination li.next a img {
@@ -919,7 +928,8 @@ ul.flat-pagination li.prev a:hover,
 ul.flat-pagination li.next a:hover {
  background:none;
  border:none;
- color:#f28b00;
+color: #ff7a7f; 
+  
 }
 
 ul.flat-pagination.style1 {
@@ -940,4 +950,29 @@ ul.flat-pagination.style1 li.prev {
 
 .no-result{
     text-align: center;
+}
+.detail_page_advertisement img{
+    margin-bottom: 5px;
+}
+
+.modal-header{
+    height: 55px; 
+}
+.related_category{
+    margin-bottom: 40px;
+}
+.first-blk-divider{
+    margin-bottom: 20px;
+}
+.lst_new_divider{
+    margin-bottom: 80px;
+}
+.fash_new_divider{
+    margin-bottom: 90px;
+}
+.banner_divider{
+margin-bottom: 20px;
+}
+.detail_video_divider{
+    margin-bottom: 30px;
 }

@@ -16,12 +16,7 @@
 				<div class="col-md-8">
 					<div class="blog_video_details">
 						<div class="feature_img">
-							<img src="{{ video.thumbnail_image.url }}">
-							<div class="category-push-button">
-							<a href="">
-								<img src="{% static 'image/playicon.png' %}">
-							</a>
-						</div>
+						<iframe id="video" width="100%" height="430px" src="" frameborder="0" allowfullscreen></iframe>
 						</div>
 						
 					</div>
@@ -93,17 +88,15 @@
 				</div>
 			<div class="row"> 
 				{% for item in related %}
-				<div class="col-md-4">
+				<div class="col-md-4 detail_video_divider">
 					<div class="related_category">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="thumb-categ-image">
-									<img src="{{ item.thumbnail_image.url }}">
-									<div class="play-button-catg">
-									<a href="">
-										<img src="{% static 'image/playicon.png' %}">
+									<a href="#">
+											<img src="{{ item.thumbnail_image.url }}">
 									</a>
-								</div>
+									
 								</div>
 
 							</div>
@@ -126,6 +119,14 @@
 			</div>
 			</div>
 	</section>
+	
 {% endblock %}
 {% block scripts %}
+<script>
+	var url = "{{ video.video_url }}";
+	var url = url.replace("watch?v=", "embed/")
+	$("#video").attr("src", url)
+</script>
 {% endblock %}
+
+

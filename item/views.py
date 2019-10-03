@@ -42,12 +42,12 @@ class VideoDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['category'] = Category.objects.all()
         context['related'] = Video.objects.filter(category=self.object.category)[:3]
-        small_banner = SmallBanner.objects.filter(show=True)[:3]
+        small_banner = SmallBanner.objects.filter(show=True)[:2]
         for item in small_banner:
             if item.valid_date < datetime.now().date():
                 item.show=False
                 item.save()
-        context['small_banner'] = SmallBanner.objects.filter(show=True)[:3]
+        context['small_banner'] = SmallBanner.objects.filter(show=True)[:2]
         return context
 
     def get_object(self):
