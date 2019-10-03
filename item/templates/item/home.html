@@ -36,8 +36,8 @@
 							
 						</div>
 							<div class="home_play-button">
-								<a href="#">
-									<img src="{% static 'image/playicon.png' %}" data-toggle="modal" data-target="#myModal">
+								<a href="#myModal" data-toggle="modal", data-url="{{ latest.1.video_url }}" data-caption="{{ latest.1.video_caption }}" data-target="#myModal">
+									<img src="{% static 'image/playicon.png' %}">
 								</a>
 							</div>
 						<div class="short-video_details_style_two">
@@ -59,7 +59,7 @@
 						<div class="col-md-12 margin_divider">
 							<div class="video_blog_style_three">
 								<div class="img-thumb_style_three">
-									<img src="{{ latest.2.thumbnail_image.url }}">
+									<a href="{% url 'item:video-detail' latest.2.pk %}"><img src="{{ latest.2.thumbnail_image.url }}"></a>
 								</div>
 								<div class="video_content_style_three">
 									<div class="style_three_top_title">
@@ -74,7 +74,7 @@
 					<div class="col-md-12 margin_divider">
 							<div class="video_blog_style_three">
 								<div class="img-thumb_style_three">
-									<img src="{{ latest.3.thumbnail_image.url }}">
+									<a href="{% url 'item:video-detail' latest.3.pk %}"><img src="{{ latest.3.thumbnail_image.url }}"></a>
 								</div>
 								<div class="video_content_style_three">
 									<div class="style_three_top_title">
@@ -104,8 +104,8 @@
 	
 									</div>
 									<div class="first-block_play-button">
-										<a href="#">
-											<img src="{% static 'image/playicon.png' %}"data-toggle="modal" data-target="#myModal">
+										<a href="#myModal" data-toggle="modal", data-url="{{ featured.0.video_url }}" data-caption="{{ featured.0.video_caption }}" data-target="#myModal">
+											<img src="{% static 'image/playicon.png' %}">
 										</a>
 								</div>
 								</div>
@@ -129,7 +129,7 @@
 					</div>
 					<div class="col-md-3 first-blk-divider">
 						<div class="first_block_image">
-							<img src="{{ featured.1.thumbnail_image.url }}">
+							<a href="{% url 'item:video-detail' featured.1.pk %}"><img src="{{ featured.1.thumbnail_image.url }}"></a>
 						</div>
 						<div class="first_block_contain_details">
 							<div class="top_block_title">
@@ -142,7 +142,7 @@
 					</div>
 						<div class="col-md-3">
 						<div class="first_block_image">
-							<img src="{{ featured.2.thumbnail_image.url }}">
+							<a href="{% url 'item:video-detail' featured.2.pk %}"><img src="{{ featured.2.thumbnail_image.url }}"></a>
 						</div>
 						<div class="first_block_contain_details">
 							<div class="top_block_title">
@@ -169,7 +169,7 @@
 					<div class="latest_fashion">
 						
 						<div class="lasest_thumb_img">
-							<a href=""><img src="{{ obj.thumbnail_image.url }}"></a>
+							<a href="{% url 'item:video-detail' obj.pk %}"><img src="{{ obj.thumbnail_image.url }}"></a>
 						</div>
 						
 							<div class="latest_fashion_details">
@@ -191,7 +191,7 @@
 						<div class="col-md-6 divider-section">
 							<div class="fashion_sidebar_news_details">
 								<div class="img-thumb">
-									<img src="{{ obj.thumbnail_image.url }}">
+									<a href="{% url 'item:video-detail' obj.pk %}"><img src="{{ obj.thumbnail_image.url }}"></a>
 								</div>
 									<div class="fashion_sidebar_details">
 										<div class="top_title">
@@ -230,7 +230,7 @@
 				<div class="col-md-4 fash_new_divider">
 					<div class="fashion_news_details">
 						<div class="img-thumb">
-							<img src="{{ item.thumbnail_image.url }}">
+							<a href="{% url 'item:video-detail' item.pk %}"><img src="{{ item.thumbnail_image.url }}"></a>
 						</div>
 						<div class="fashion_short_details">
 							<div class="top_title">
@@ -250,9 +250,9 @@
 				<div class="col-md-12">
 					{% for item in big_banner %}
 					<div class="advertisement">
-						<!-- <a href="#"> -->
+						<a href="{{ item.company_link }}">
 							<img src="{{ item.main_image.url }}">
-						<!-- </a> -->
+						</a>
 					</div>
 					{% endfor %}
 				</div>

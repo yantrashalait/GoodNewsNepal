@@ -9,11 +9,11 @@ class Category(models.Model):
         return self.name
 
 class Video(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='video')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='video', null=True, blank=True)
     video_url = models.URLField(help_text="Please enter the url of the video from youtube or other sources")
-    thumbnail_image = models.ImageField(upload_to='thumbnail/', help_text="Image size: width=1199px height=800px")
-    video_caption = models.TextField()
-    video_description = models.TextField()
+    thumbnail_image = models.ImageField(upload_to='thumbnail/', help_text="Image size: width=1199px height=800px", null=True, blank=True)
+    video_caption = models.TextField(null=True, blank=True)
+    video_description = models.TextField(null=True, blank=True)
     date = models.DateField()
     recommend = models.BooleanField(default=False, verbose_name='Do you want this video to display in recommend section?')
     latest = models.BooleanField(default=False, verbose_name='Do you want this video to display in latest section?')
@@ -24,8 +24,9 @@ class Video(models.Model):
     
 
 class BigBanner(models.Model):
-    main_image = models.ImageField(upload_to='banner/', null=True, blank=True, help_text="Image size: width=1024px height=77px")
+    main_image = models.ImageField(upload_to='banner/', help_text="Image size: width=1024px height=77px")
     company_name = models.CharField(max_length=200)
+    company_link = models.URLField(help_text="Please enter the url of company")
     added_date = models.DateField(default=timezone.now)
     valid_date = models.DateField()
     show = models.BooleanField(default=True)
@@ -36,6 +37,7 @@ class BigBanner(models.Model):
 class SmallBanner(models.Model):
     image = models.ImageField(upload_to='banner/', help_text="Image size: width=1024px height=500px")
     company_name = models.CharField(max_length=200)
+    company_link = models.URLField(help_text="Please enter the url of company")
     added_date = models.DateField(default=timezone.now)
     valid_date = models.DateField()
     show = models.BooleanField(default=True)
