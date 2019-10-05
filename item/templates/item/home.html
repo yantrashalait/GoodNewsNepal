@@ -5,6 +5,7 @@
 	
 		<div class="container-fluid">
 			<div class="row">
+				{% if latest.0 %}
 				<div class="col-md-5 banner_divider">
 					<div class="video-blog">
 						<div class="blog_video_img">
@@ -29,6 +30,8 @@
 						</div>						
 					</div>
 				</div>
+				{% endif %}
+				{% if latest.1 %}
 				<div class="col-md-4 banner_divider">
 					<div class="video_blog_style_two">
 						<div class="blog_video_img">
@@ -54,8 +57,11 @@
 						</div>
 					</div>
 				</div>
+				{% endif %}
+				{% if latest.2 %}
 				<div class="col-md-3">
 					<div class="row">
+						{% if latest.2 %}
 						<div class="col-md-12 margin_divider">
 							<div class="video_blog_style_three">
 								<div class="img-thumb_style_three">
@@ -71,6 +77,8 @@
 								</div>
 							</div>
 						</div>
+						{% endif %}
+						{% if latest.3 %}
 					<div class="col-md-12 margin_divider">
 							<div class="video_blog_style_three">
 								<div class="img-thumb_style_three">
@@ -86,12 +94,15 @@
 								</div>
 							</div>
 						</div>
+						{% endif %}
 						
 					</div>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</section>
+	{% if featured %}
 	<section class="first_block">
 			<div class="container">
 				<div class="row">
@@ -156,12 +167,13 @@
 				</div>
 			</div>
 	</section>
+	{% endif %}
 	<section class="Latest_news">
 		{% for item in catlist %}
 		<div class="container catego-divider">
 			<div class="heading-area">
 				<h3>{{ item.name }}</h3>
-				<p>Abundantly creeping saw forth spirit can made appear fourth us.</p>
+				<p>{{ item.description }}</p>
 			</div>
 			<div class="row">
 					{% for obj in item.video.all|slice:":1" %}
@@ -223,7 +235,7 @@
 		<div class="container">
 			<div class="heading-area">
 				<h3>Recommended Videos</h3>
-				<p>Abundantly creeping saw forth spirit can made appear fourth us.</p>
+				<p>Recommended For You.</p>
 			</div>
 			<div class="row">
 				{% for item in recommend|slice:":3" %}
