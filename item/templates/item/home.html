@@ -106,6 +106,7 @@
 	<section class="first_block">
 			<div class="container">
 				<div class="row">
+					{% if featured.0 %}
 					<div class="col-md-6 first-blk-divider">
 						<div class="first_blog_row">
 													<div class="row">
@@ -138,6 +139,8 @@
 							</div>
 						</div>
 					</div>
+					{% endif %}
+					{% if featured.1 %}
 					<div class="col-md-3 first-blk-divider">
 						<div class="first_block_image">
 							<a href="{% url 'item:video-detail' featured.1.pk %}"><img src="{{ featured.1.thumbnail_image.url }}"></a>
@@ -151,7 +154,9 @@
 							</div>
 						</div>
 					</div>
-						<div class="col-md-3">
+					{% endif %}
+					{% if featured.2 %}
+					<div class="col-md-3">
 						<div class="first_block_image">
 							<a href="{% url 'item:video-detail' featured.2.pk %}"><img src="{{ featured.2.thumbnail_image.url }}"></a>
 						</div>
@@ -164,6 +169,7 @@
 							</div>
 						</div>
 					</div>
+					{% endif %}
 				</div>
 			</div>
 	</section>
