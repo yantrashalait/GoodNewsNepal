@@ -1,8 +1,19 @@
 {% extends 'item/base.html' %}
 {% load static %}
 {% block content %}
+<section class="adv_banner">
+	<div class="container">
+			<div class="col-md-12">
+					<div class="first_advertisement">
+						<a href="#">
+							<img src=" static/image/Everest-colez_7v3Urc1.gif ">
+						</a>
+					</div>
+				</div>
+	</div>
+</section>
+
 <section class="videos-banner">
-	
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-5 banner_divider">
@@ -247,16 +258,19 @@
 				{% endfor %}
 			</div>
 			<div class="row">
-				<div class="col-md-12">
-					{% for item in big_banner %}
-					<div class="advertisement">
-						<a href="{{ item.company_link }}">
-							<img src="{{ item.main_image.url }}">
-						</a>
+					<div class="col-md-12">
+						{% for item in big_banner %}
+						<div class="advertisement">
+							<a href="{{ item.company_link }}">
+								<img src="{{ item.main_image.url }}">
+							</a>
+						</div>
+						{% endfor %}
+						{% if not big_banner %}
+						Add banner
+						{% endif %}
 					</div>
-					{% endfor %}
 				</div>
-			</div>
 		</div>
 	</section>
 {% endblock %}

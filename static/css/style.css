@@ -25,7 +25,7 @@ ul{
 }
 /*BANNER SECTION*/
 section.videos-banner {
-    margin-top: 145px;
+    margin-top: 20px;
 }
 .banner_video_blog {
     background-color: #fff;
@@ -975,4 +975,7 @@ margin-bottom: 20px;
 }
 .detail_video_divider{
     margin-bottom: 30px;
+}
+.first_advertisement{
+    margin-top: 80px;
 }
