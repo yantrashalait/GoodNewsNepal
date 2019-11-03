@@ -49,9 +49,11 @@ class SmallBanner(models.Model):
 class AboutUs(models.Model):
     company_name = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
+    email = models.EmailField(null=True, blank=True)
     contact_number = models.CharField(max_length=20)
     youtube_link = models.URLField(help_text="Enter youtube url")
     facebook_link = models.URLField(help_text="Enter facebook url")
+    title = models.CharField(max_length=400, null=True, blank=True)
     description = models.TextField()
     image = models.ImageField(upload_to='banner/')
 

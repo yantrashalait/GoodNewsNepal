@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Q
 from django.views.generic import TemplateView, ListView, DetailView
-from . models import Video, Category, SmallBanner, BigBanner
+from . models import Video, Category, SmallBanner, BigBanner, AboutUs
 from datetime import datetime
 
 # Create your views here.
@@ -18,12 +18,12 @@ class IndexView(TemplateView):
         context['recommend'] = Video.objects.filter(recommend=True)
         context['latest'] = Video.objects.filter(latest=True)[:4]
         context['featured'] = Video.objects.filter(featured=True)[:3]
-        big_banner = BigBanner.objects.filter(show=True)[:1]
+        big_banner = BigBanner.objects.filter(show=True)[:2]
         for item in big_banner:
             if item.valid_date < datetime.now().date():
                 item.show=False
                 item.save()
-        context['big_banner'] = BigBanner.objects.filter(show=True)[:1]
+        context['big_banner'] = BigBanner.objects.filter(show=True)[:2]
         return context
 
 
@@ -71,3 +71,8 @@ class SearchView(ListView):
 
     def get_queryset(self):
         return Video.objects.filter(Q(category__name__icontains=self.request.GET.get('srh')) | Q(video_caption__icontains=self.request.GET.get('srh')))
+
+class AboutUs(TemplateView):
+    template_name = 'item/about.html'
+    model = AboutUs
+    context_object_name = 'about'

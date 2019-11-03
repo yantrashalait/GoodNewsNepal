@@ -17,7 +17,7 @@ section.top-header {
 }
 .navbar-header img {
     height: 45px;
-    margin: 0px 725px 0px 0px;
+    margin: 0px 640px 0px 0px;
 }
 ul{
   list-style-type: none;
@@ -496,10 +496,23 @@ section.travel-news {
 section.fashion_news {
     padding: 125px 0px 65px 0px;
 }
+.first_advertisement {
+    width: 100%;
+    text-align: center;
+}
+.first_advertisement img{
+    width: 100%;
+    overflow: hidden;
+}
+@media screen and (max-width:905px){
+    .first_advertisement img{
+    margin-top:70px;
+    }
+}
 .advertisement {
     width: 100%;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 .advertisement img{
     width: 100%;
@@ -976,6 +989,85 @@ margin-bottom: 20px;
 .detail_video_divider{
     margin-bottom: 30px;
 }
-.first_advertisement{
+section.adv_banner {
     margin-top: 80px;
+}
+first_advertisement img{
+    width: 100%;
+}
+/*Contact*/
+.contact_banner{
+    padding-top: 90px;
+    position: relative;
+    margin-bottom: 200px;
+
+}
+
+.blog_banner img{
+    width: 100%;
+}
+.banner_blog_detail {
+    width: 70%;
+    position: absolute;
+    text-align: center;
+    left: 15%;
+    top: 90%;
+    background-color: #fff;
+    padding-top: 45px;
+
+
+}
+ span.sub_heading {
+    font-size: 15px;
+}
+h1.cont_heading {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    color: #333e48;
+}
+p.cont_para {
+    padding: 0px 15px 0px 15px;
+    color: #b0b0b0;
+    font-size: 14px;
+}
+.mp__frame {
+    position: relative;
+}
+
+.cont__info__box {
+    position: absolute;
+    top: -8%;
+    left: 0%;
+    background-color: yellow;
+    padding: 45px;
+}
+.cont__info__head {
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ffdf7b;
+    margin-bottom: 10px;
+}
+.cont__info__body {
+    padding: 0 0 35px 0;
+    border-bottom: 1px solid #ffdf7b;
+    margin: 0 0 5px 0;
+    font-size: 13px; 
+    color: #333e48;
+}
+.cont__info__body .cont__info__address {
+    margin: 0 0 20px 0;
+}
+.cont__foot__ttl {
+    font-size: 18px;
+    font-weight: 700;
+}
+.cont__foot__text {
+    font-size: 13px;
+}
+section.map__holder__contact__info {
+
+    padding-top: 70px;
+    padding-bottom: 55px;
 }

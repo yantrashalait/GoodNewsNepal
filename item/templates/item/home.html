@@ -5,11 +5,11 @@
 	<div class="container">
 			<div class="col-md-12">
 					<div class="first_advertisement">
-						<a href="#">
-							<img src=" static/image/Everest-colez_7v3Urc1.gif ">
+						<a href="{{ bigbanner.0.company_link }}">
+							<img src=" {{ big_banner.0.main_image.url }} ">
 						</a>
 					</div>
-				</div>
+			</div>
 	</div>
 </section>
 
@@ -276,18 +276,19 @@
 				{% endfor %}
 			</div>
 			<div class="row">
-					<div class="col-md-12">
-						{% for item in big_banner %}
-						<div class="advertisement">
-							<a href="{{ item.company_link }}">
-								<img src="{{ item.main_image.url }}">
-							</a>
-						</div>
-						{% endfor %}
-						{% if not big_banner %}
-						Add banner
-						{% endif %}
-					</div>
+				<div class="container">
+						<div class="col-md-12">
+								<div class="advertisement">
+									<a href="{{ bigbanner.1.company_link }}">
+										<img src="{{ big_banner.1.main_image.url }}">
+									</a>
+								</div>
+								{% if not big_banner %}
+								Add banner
+								{% endif %}
+							</div>
+				</div>
+
 				</div>
 		</div>
 	</section>
