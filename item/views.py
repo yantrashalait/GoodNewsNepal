@@ -70,6 +70,8 @@ class SearchView(ListView):
     context_object_name = "video"
 
     def get_queryset(self):
+        if self.request.GET.get("srh") == " " or self.request.GET.get("srh") == "":
+            return []
         return Video.objects.filter(Q(category__name__icontains=self.request.GET.get('srh')) | Q(video_caption__icontains=self.request.GET.get('srh')))
 
 class AboutUs(TemplateView):
