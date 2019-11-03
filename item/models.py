@@ -55,7 +55,7 @@ class AboutUs(models.Model):
     facebook_link = models.URLField(help_text="Enter facebook url")
     title = models.CharField(max_length=400, null=True, blank=True)
     description = models.TextField()
-    image = models.ImageField(upload_to='banner/')
+    image = models.ImageField(upload_to='banner/', help_text="Image size: width=1422px height=711px")
 
     def __str__(self):
         return self.company_name
